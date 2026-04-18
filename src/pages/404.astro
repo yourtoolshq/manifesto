@@ -1,0 +1,72 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { site } from "../data/site";
+---
+
+<Layout title={`404 | ${site.name}`} description="The page you requested could not be found.">
+    <div class="min-h-screen">
+        <header
+            class="mx-auto flex max-w-200 items-center justify-between px-6 py-6 sm:px-10"
+        >
+            <nav class="flex gap-4 ml-auto">
+                {
+                    site.socialLinks.map((link) => (
+                        <a
+                            href={link.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={link.ariaLabel}
+                            class="flex items-center justify-center text-xl transition-colors"
+                        >
+                            <i class={link.iconClass}></i>
+                        </a>
+                    ))
+                }
+            </nav>
+        </header>
+
+        <section
+            class="mx-auto max-w-300 px-5 pt-10 text-center sm:px-8 sm:pt-14 lg:px-10 lg:pt-16"
+        >
+            <p
+                class="mb-4 font-display text-base italic font-bold text-accent opacity-0 motion-safe:animate-fade-up sm:mb-6 sm:text-lg"
+            >
+                Page not found
+            </p>
+            <h1
+                class="mb-5 font-display text-[clamp(2.5rem,9vw,5rem)] leading-[1.08] text-body opacity-0 motion-safe:animate-fade-up motion-safe:[animation-delay:120ms] sm:mb-6"
+            >
+                <strong class="text-[clamp(3.1rem,14vw,8rem)] font-black"
+                    >404<span class="text-accent">.</span></strong
+                ><br />
+                <span
+                    class="mt-3 inline-block text-[clamp(2rem,9vw,5.5rem)] leading-[1.15] sm:mt-5"
+                    >This page is missing<span class="text-accent">.</span></span
+                >
+            </h1>
+            <p
+                class="mx-auto mt-10 max-w-135 px-2 text-lg leading-[1.7] text-body/60 opacity-0 motion-safe:animate-fade-up motion-safe:[animation-delay:240ms] sm:mt-14 sm:px-0 sm:text-xl lg:mt-16 lg:text-2xl"
+            >
+                The link you followed doesn’t go anywhere. Head back to the
+                manifesto.
+            </p>
+        </section>
+
+        <section
+            class="mx-auto mt-16 max-w-200 px-5 pb-14 sm:mt-28 sm:px-8 sm:pb-20 lg:mt-32 lg:px-10 lg:pb-24"
+        >
+            <div
+                class="mx-auto max-w-132 text-center text-base leading-[1.85] text-body opacity-0 motion-safe:animate-fade-up motion-safe:[animation-delay:360ms] sm:text-[1.0625rem] sm:leading-[1.9]"
+            >
+                <p>
+                    <a
+                        href="/"
+                        class="font-display font-medium text-accent transition-colors hover:text-body"
+                    >
+                        Return home
+                    </a>
+                </p>
+            </div>
+        </section>
+    </div>
+</Layout>

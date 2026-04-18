@@ -1,6 +1,7 @@
 ---
 import "@tabler/icons-webfont/dist/tabler-icons.min.css";
 import "../styles/global.css";
+import { site } from "../data/site";
 
 interface Props {
     title: string;
@@ -9,7 +10,7 @@ interface Props {
 
 const {
     title,
-    description = "A manifesto for local-first software that respects privacy, works offline, and keeps control where it belongs: with you.",
+    description = site.description,
 } = Astro.props;
 
 const siteName = "Your Tools";
