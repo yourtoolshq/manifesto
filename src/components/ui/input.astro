@@ -1,0 +1,11 @@
+---
+interface Props extends astroHTML.JSX.InputHTMLAttributes {
+}
+
+const { class: className = '', ...props } = Astro.props;
+---
+
+<input
+  class={`flex h-11 w-full rounded-md border border-black/10 bg-[#f7f5f0] px-3 py-2 text-sm text-body placeholder:text-[#9c9590] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 ${className}`.trim()}
+  {...props}
+/>

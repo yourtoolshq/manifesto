@@ -1,0 +1,245 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/ui/card.astro";
+import Button from "../components/ui/button.astro";
+import Input from "../components/ui/input.astro";
+import Checkbox from "../components/ui/checkbox.astro";
+---
+
+<Layout title="Your Tools | Manifesto">
+    <div class="min-h-screen">
+        <header
+            class="mx-auto flex max-w-200 items-center justify-between px-6 py-6 sm:px-10"
+        >
+            <nav class="flex gap-4 ml-auto">
+                <a
+                    href="https://discord.gg/yourtools"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Discord"
+                    class="flex items-center justify-center text-xl transition-colors"
+                >
+                    <i class="ti ti-brand-discord"></i>
+                </a>
+                <a
+                    href="https://github.com/yourtools"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="GitHub"
+                    class="flex items-center justify-center text-xl transition-colors"
+                >
+                    <i class="ti ti-brand-github"></i>
+                </a>
+                <a
+                    href="https://twitter.com/yourtools"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Twitter"
+                    class="flex items-center justify-center text-xl transition-colors"
+                >
+                    <i class="ti ti-brand-x"></i>
+                </a>
+            </nav>
+        </header>
+
+        <section
+            class="mx-auto max-w-300 px-6 pt-16 text-center sm:px-10"
+        >
+            <p
+                class="mb-6 font-display text-lg italic font-bold text-accent opacity-0 motion-safe:animate-fade-up"
+            >
+                A note from the maker
+            </p>
+            <h1
+                class="mb-6 font-display text-[clamp(2.75rem,9vw,5rem)] leading-[1.1] text-body opacity-0 motion-safe:animate-fade-up motion-safe:[animation-delay:120ms]"
+            >
+                <strong class="font-black text-9xl">Your Tools<span class="text-accent">.</span></strong><br />
+                <span class="text-8xl inline-block mt-5">Your Data<span class="text-accent">.</span> Your Rules<span class="text-accent">.</span></span>
+            </h1>
+            <p
+                class="mx-auto max-w-135 mt-16 text-2xl text-body/60 leading-[1.7] sm:text-xl opacity-0 motion-safe:animate-fade-up motion-safe:[animation-delay:240ms]"
+            >
+                Local-first software that runs on your device. No cloud lock-in.
+                No tracking. No nonsense.
+            </p>
+        </section>
+
+        <section class="mx-auto max-w-200 px-6 mt-32 pb-16 sm:px-10 sm:pb-24">
+            <div
+                class="mx-auto max-w-132 text-[1.0625rem] leading-[1.9] text-body opacity-0 motion-safe:animate-fade-up motion-safe:[animation-delay:360ms]"
+            >
+                <p class="">
+                    Hi, I’m building software tools, and I'm doing it differently.
+                    
+                </p>
+                <!-- <p class="mb-6">
+                    <span
+                        class="float-left mr-3 mt-1 font-display text-6xl leading-[0.8] text-accent"
+                        >H</span
+                    >i, I’m building software tools, and I'm doing it differently.
+                    
+                </p> -->
+                    
+                <p class="mt-6">
+                    Most apps today are built backwards.<br />
+                    They’re “free” because you’re the product.<br />
+                    They track everything.<br />
+                    Your data lives on someone else’s server.
+                </p>
+                <p class="my-6">
+                    When the internet drops, they stop working. <br /><br />
+                    I think that’s broken.<br /><br />
+                    So here’s what I’m building instead:<br />
+                </p>
+
+                <div class="my-8 space-y-6">
+                    <p>
+                        <strong class=" font-bold"
+                            >Tools that run on your device.</strong
+                        ><br />
+                        Not in a cloud somewhere. They work offline, locally,
+                        under your control.
+                    </p>
+                    <p>
+                        <strong class=" font-bold"
+                            >Your data stays yours.</strong
+                        ><br />
+                        It lives on your machine. You can move it, export it,
+                            delete it. I can't see it, sell it, or share it.
+                    </p>
+                    <p>
+                        <strong class=" font-bold"
+                            >Privacy by default.</strong
+                        ><br />
+                        Analytics are off unless you turn them on. No tracking.
+                            No surveillance. No hidden data collection.
+                    </p>
+                    <p>
+                        <strong class=" font-bold"
+                            >Honest pricing.</strong
+                        ><br />
+                        Good tools aren't free. I'll charge fairly so I can build
+                            for you - not for advertisers.
+                    </p>
+
+                </div>
+
+                <p class="mb-6">
+                    That's the deal.<br />Simple tools that respect you. <br/><br/> More apps
+                    coming soon.
+                </p>
+                <p class="mt-8 font-display font-medium text-accent">- Harsh Patel</p>
+            </div>
+        </section>
+
+        <section class="font-bold font-display text-4xl text-center max-w-130 mx-auto leading-tight">
+            <h2 class="opacity-0 motion-safe:animate-fade-up motion-safe:[animation-delay:600ms]">
+                These beliefs aren’t theoretical. They’re what I’m building toward, starting with this:
+            </h2>
+        </section>
+
+        <section
+            class="mx-auto max-w-180 px-6 py-24 sm:px-10 opacity-0 motion-safe:animate-fade-up motion-safe:[animation-delay:720ms]"
+        >
+        <Card class="border-black/20 bg-[#fdfcfa]">
+                    <p
+                        class="mb-3 text-sm font-medium uppercase tracking-widest text-accent/70"
+                    >
+                        Coming soon
+                    </p>
+                    <h2
+                        class="mb-4 font-display text-3xl font-bold text-body"
+                    >
+                        Filer <span class="text-sm font-normal">by Your Tools</p>
+                    </h2>
+                    <p
+                        class="mb-5 leading-[1.6] text-body/70"
+                    >
+                        Building tools takes time. Join the waitlist to know
+                        when each one launches. No spam - only important
+                        updates.
+                    </p>
+                    <p>
+
+                        <Button type="submit" class="w-auto!">Interested? Learn More >></Button>
+                    </p>
+                </Card>
+                </section>
+
+                        <section class="max-w-130 mx-auto leading-tight opacity-0 motion-safe:animate-fade-up motion-safe:[animation-delay:1000ms]">
+            <h2 class="font-bold font-display text-4xl text-center">
+                Are you interested yet?
+            </h2>
+            <p
+                        class="my-7 max-w-100 text-center mx-auto leading-[1.6] text-body/70"
+                    >
+                        Building tools takes time. Join the waitlist to know
+                        when each one launches. <br/><br/> No spam - only important
+                        updates.
+                    </p>
+                    <form class="flex flex-col gap-3" action="#" method="POST">
+                        <div class="flex gap-2">
+
+                            <Input
+                                type="email"
+                                name="email"
+                                placeholder="your@email.com"
+                                required
+                                class="flex-4/6"
+                            />
+                            <Button type="submit" class="flex-2/6">Join waitlist</Button>
+                        </div>
+                        <label
+                            class="mt-2 flex justify-center gap-2.5 text-[0.8125rem] leading-[1.5]"
+                        >
+                            <Checkbox name="updates" />
+                            I'd also like to follow the journey (blog posts, behind-the-scenes)
+                        </label>
+                    </form>
+        </section>
+
+        
+        <footer class="mt-36 mb-20 opacity-0 motion-safe:animate-fade-up motion-safe:[animation-delay:1250ms]">
+            <div class="flex items-center justify-center gap-5 divide-x-2 divide-body/20">
+
+                <p class="font-logo font-bold text-2xl pr-5">Your Tools</p>
+                <p class="flex gap-5">
+                    <a
+                        href="https://discord.gg/yourtools"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Discord"
+                        class="flex items-center justify-center transition-colors"
+                    >
+                        <i class="ti ti-brand-discord mr-1"></i>
+                        <span class="">Your Tools</span>
+                    </a>
+                    <a
+                        href="https://github.com/yourtools"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="GitHub"
+                        class="flex items-center justify-center transition-colors"
+                    >
+                        <i class="ti ti-brand-github mr-1"></i>
+                        <span class="">harshPPatel</span>
+                    </a>
+                    <a
+                    href="https://twitter.com/yourtools"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Twitter"
+                    class="flex items-center justify-center transition-colors"
+                    >
+                    <i class="ti ti-brand-x mr-1"></i>
+                    <span class="">harshPPatel</span>
+                    </a>
+    
+                </p>
+            </div>
+            <p class="text-xs opacity-70 text-center mt-4">
+                © 2025 Your Tools • Built by Harsh
+            </p>
+        </footer>
+    </div>
+</Layout>

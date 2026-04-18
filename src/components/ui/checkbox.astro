@@ -1,0 +1,12 @@
+---
+interface Props extends astroHTML.JSX.InputHTMLAttributes {
+}
+
+const { class: className = '', ...props } = Astro.props;
+---
+
+<input
+  type="checkbox"
+  class={`mt-[0.2rem] h-4 w-4 rounded border-black/20 bg-white text-accent accent-accent ${className}`.trim()}
+  {...props}
+/>

@@ -1,0 +1,19 @@
+---
+interface Props extends astroHTML.JSX.ButtonHTMLAttributes {
+  variant?: 'default' | 'outline';
+}
+
+const { class: className = '', variant = 'default', type = 'button', ...props } = Astro.props;
+
+const baseClass =
+  'inline-flex w-full items-center justify-center whitespace-nowrap rounded-md px-4 py-3 text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 disabled:pointer-events-none disabled:opacity-50 focus-visible:bg-accent';
+
+const variantClass =
+  variant === 'outline'
+    ? 'border border-black/15 bg-white text-body hover:bg-accent'
+    : 'border border-transparent bg-body text-white hover:bg-accent';
+---
+
+<button type={type} class={`${baseClass} ${variantClass} ${className}`.trim()} {...props}>
+  <slot />
+</button>
