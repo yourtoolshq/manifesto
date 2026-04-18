@@ -1,31 +1,17 @@
-# Astro Starter Kit: Minimal
+# Your Tools Web
+
+A landing page for Your Tools, built with Astro and Tailwind CSS v4.
+
+## Development
+
+Install dependencies and start the dev server:
 
 ```sh
-pnpm create astro@latest -- --template minimal
+pnpm install
+pnpm dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
+## Commands
 
 All commands are run from the root of the project, from a terminal:
 
@@ -38,6 +24,7 @@ All commands are run from the root of the project, from a terminal:
 | `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `pnpm astro -- --help` | Get help using the Astro CLI                     |
 
-## 👀 Want to learn more?
+## Notes
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- Global styles are imported from [src/layouts/Layout.astro](/Users/hpatel/.t3/worktrees/your-tools-web/t3code-cbd7f5d1/src/layouts/Layout.astro:1).
+- The waitlist form is currently a local-first preview that stores submissions in `localStorage` until a real email backend is connected.
