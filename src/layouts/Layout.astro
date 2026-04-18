@@ -11,6 +11,30 @@ const {
     title,
     description = site.description,
 } = Astro.props;
+
+const siteName = "Your Tools";
+const keywords =
+    "local-first software, privacy-first apps, offline tools, desktop tools, your tools";
+const author = "Harsh Patel";
+const themeColor = "#ffffff";
+const canonicalUrl = Astro.site
+    ? new URL(Astro.url.pathname, Astro.site).toString()
+    : undefined;
+const socialImage = Astro.site
+    ? new URL("/og.png", Astro.site).toString()
+    : "/og.png";
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: siteName,
+    description,
+    url: canonicalUrl,
+    image: socialImage,
+    author: {
+        "@type": "Person",
+        name: author,
+    },
+};
 ---
 
 <!doctype html>
@@ -19,9 +43,46 @@ const {
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="description" content={description} />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="keywords" content={keywords} />
+        <meta name="author" content={author} />
+        <meta name="robots" content="index, follow" />
+        <meta name="theme-color" content={themeColor} />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content={siteName} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={socialImage} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={socialImage} />
+        {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
+        {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/favicon-16x16.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/apple-touch-icon.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
         <meta name="generator" content={Astro.generator} />
         <title>{title}</title>
+        <script
+            type="application/ld+json"
+            set:html={JSON.stringify(structuredData)}
+        />
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -30,7 +91,6 @@ const {
             href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Hubot+Sans:wght@700&family=Playfair+Display:wght@500;600;700;800;900&display=swap"
             rel="stylesheet"
         />
-        <link href="./src/styles/global.css" rel="stylesheet" />
     </head>
     <body class="leading-relaxed bg-white text-body">
         <slot />
