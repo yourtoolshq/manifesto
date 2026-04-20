@@ -1,5 +1,5 @@
 <p align="left">
-  <img src="./public/favicon-32x32.png" alt="Your Tools logo" width="32" height="32" />
+  <img src="./public/favicon-32x32.png" alt="Your Tools logo" width="64" height="64" />
 </p>
 
 # Your Tools Web
