@@ -1,30 +1,55 @@
+<p align="left">
+  <img src="./public/favicon-32x32.png" alt="Your Tools logo" width="64" height="64" />
+</p>
+
 # Your Tools Web
 
-A landing page for Your Tools, built with Astro and Tailwind CSS v4.
+Landing page for Your Tools, a local-first software studio focused on privacy-first tools.
 
-## Development
+## About
 
-Install dependencies and start the dev server:
+This repo contains the Astro landing page and manifesto site for Your Tools.
+The waitlist form is currently a local-first preview that stores submissions in browser `localStorage`.
+
+## Stack
+
+- Astro
+- Tailwind CSS v4
+- TypeScript
+- pnpm
+
+## Getting Started
 
 ```sh
 pnpm install
 pnpm dev
 ```
 
-## Commands
+## Scripts
 
-All commands are run from the root of the project, from a terminal:
+| Command             | Description                              |
+| :------------------ | :--------------------------------------- |
+| `pnpm dev`          | Start the local dev server               |
+| `pnpm build`        | Build the production site                |
+| `pnpm preview`      | Preview the production build locally     |
+| `pnpm lint`         | Run ESLint                               |
+| `pnpm format`       | Format supported files with Prettier     |
+| `pnpm format:check` | Check formatting without writing changes |
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+## Project Structure
 
-## Notes
+- `src/pages` for routes and page content
+- `src/components` for reusable UI pieces
+- `src/layouts` for shared layout markup
+- `src/data` for site metadata and links
+- `public` for static assets like favicons and social images
 
-- Global styles are imported from [src/layouts/Layout.astro](/Users/hpatel/.t3/worktrees/your-tools-web/t3code-cbd7f5d1/src/layouts/Layout.astro:1).
-- The waitlist form is currently a local-first preview that stores submissions in `localStorage` until a real email backend is connected.
+## Socials
+
+- GitHub: https://github.com/yourtoolshq
+- Discord: https://discord.gg/WyFghe6x
+- X: https://x.com/harsh_p_patel
+
+## Note
+
+This is the first public repo under `yourtoolshq`, so the site and copy will continue to evolve.
