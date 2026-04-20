@@ -1,4 +1,4 @@
-<p align="center">
+<p align="left">
   <img src="./public/favicon-32x32.png" alt="Your Tools logo" width="32" height="32" />
 </p>
 
