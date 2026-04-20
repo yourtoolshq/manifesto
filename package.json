@@ -15,7 +15,7 @@
   "dependencies": {
     "@tabler/icons-webfont": "^3.36.1",
     "@tailwindcss/vite": "^4.1.18",
-    "astro": "^5.18.1",
+    "astro": "^6.1.8",
     "tailwindcss": "^4.1.18"
   },
   "devDependencies": {
