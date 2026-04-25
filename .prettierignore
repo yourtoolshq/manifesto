@@ -1,3 +1,5 @@
 dist
 .astro
+.claude
+.vercel
 node_modules

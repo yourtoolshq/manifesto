@@ -197,12 +197,11 @@ const currentYear = new Date().getFullYear();
           id="waitlist-note"
           class="text-center text-sm leading-[1.6] text-body/55"
         >
-          This preview keeps submissions on your device for now. The launch
-          email flow goes live with the first product release.
+          Your email is stored in Resend so you can receive launch updates.
         </p>
         <p
           id="waitlist-feedback"
-          class="text-center text-sm leading-[1.6] text-accent"
+          class="text-center text-sm leading-[1.6] text-body/60"
           data-waitlist-feedback
           aria-live="polite"
         >
@@ -243,21 +242,27 @@ const currentYear = new Date().getFullYear();
 </Layout>
 
 <script is:inline>
-  const storageKey = "your-tools-waitlist-preview";
   const form = document.querySelector("[data-waitlist-form]");
   const feedback = document.querySelector("[data-waitlist-feedback]");
+  const feedbackStateClasses = {
+    error: ["text-accent"],
+    loading: ["text-body/55"],
+    success: ["text-emerald-700"],
+  };
+
+  const setFeedback = (message, state = "loading") => {
+    feedback.textContent = message;
+
+    feedback.classList.remove(
+      ...feedbackStateClasses.error,
+      ...feedbackStateClasses.loading,
+      ...feedbackStateClasses.success,
+    );
+    feedback.classList.add(...feedbackStateClasses[state]);
+  };
 
   if (form instanceof HTMLFormElement && feedback instanceof HTMLElement) {
-    let submissions = JSON.parse(
-      window.localStorage.getItem(storageKey) ?? "[]",
-    );
-
-    if (submissions.length > 0) {
-      feedback.textContent =
-        "You are already saved on this device. We will wire up email delivery before launch.";
-    }
-
-    form.addEventListener("submit", (event) => {
+    form.addEventListener("submit", async (event) => {
       event.preventDefault();
 
       const formData = new FormData(form);
@@ -267,26 +272,49 @@ const currentYear = new Date().getFullYear();
       const updates = formData.get("updates") === "on";
 
       if (!email) {
-        feedback.textContent = "Enter an email address to save your interest.";
+        setFeedback("Enter an email address to join the waitlist.", "error");
         return;
       }
 
-      const nextSubmissions = submissions.filter(
-        (entry) => entry.email !== email,
-      );
+      const submitButton = form.querySelector("button[type='submit']");
 
-      nextSubmissions.push({
-        email,
-        updates,
-        createdAt: new Date().toISOString(),
-      });
+      if (submitButton instanceof HTMLButtonElement) {
+        submitButton.disabled = true;
+      }
 
-      submissions = nextSubmissions;
-      window.localStorage.setItem(storageKey, JSON.stringify(nextSubmissions));
+      setFeedback("Joining the waitlist...", "loading");
 
-      feedback.textContent =
-        "Saved on this device. Email delivery will be connected before the first product ships.";
-      form.reset();
+      try {
+        const response = await fetch("/api/waitlist", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify({ email, updates }),
+        });
+
+        const result = await response.json().catch(() => ({}));
+
+        if (!response.ok) {
+          throw new Error(
+            result.message ?? "Something went wrong. Please try again.",
+          );
+        }
+
+        setFeedback(result.message ?? "You are on the waitlist.", "success");
+        form.reset();
+      } catch (error) {
+        setFeedback(
+          error instanceof Error
+            ? error.message
+            : "Something went wrong. Please try again.",
+          "error",
+        );
+      } finally {
+        if (submitButton instanceof HTMLButtonElement) {
+          submitButton.disabled = false;
+        }
+      }
     });
   }
 </script>
