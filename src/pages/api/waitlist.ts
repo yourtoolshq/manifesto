@@ -1,9 +1,9 @@
 import type { APIRoute } from "astro";
+import process from "node:process";
+
 import { createServerEnv } from "../../env";
 
 export const prerender = false;
-
-const env = createServerEnv(import.meta.env);
 
 const RESEND_CONTACTS_URL = "https://api.resend.com/contacts";
 const DEVELOPER_UPDATES_TOPIC_ID = "1b824626-ea09-4d6d-9ac4-250265c0329e";
@@ -30,6 +30,12 @@ const json = (body: unknown, status = 200) =>
     headers: {
       "content-type": "application/json",
     },
+  });
+
+const getEnv = () =>
+  createServerEnv({
+    RESEND_API_KEY:
+      import.meta.env.RESEND_API_KEY ?? process.env.RESEND_API_KEY,
   });
 
 const readResendError = async (response: Response) => {
@@ -83,6 +89,13 @@ const updateContactTopics = async (
 
 export const POST: APIRoute = async ({ request }) => {
   let body: WaitlistRequest;
+  let env: ReturnType<typeof createServerEnv>;
+
+  try {
+    env = getEnv();
+  } catch {
+    return json({ message: "Waitlist service is not configured." }, 500);
+  }
 
   try {
     body = (await request.json()) as WaitlistRequest;
