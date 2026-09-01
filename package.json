@@ -15,7 +15,7 @@
   "dependencies": {
     "@astrojs/vercel": "^9.0.5",
     "@t3-oss/env-core": "^0.13.11",
-    "@tabler/icons-webfont": "^3.36.1",
+    "@tabler/icons-webfont": "^3.41.1",
     "@tailwindcss/vite": "^4.1.18",
     "astro": "^5.18.1",
     "tailwindcss": "^4.1.18",
